@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import List from "./views/List";
 
 export default class App extends Component {
@@ -30,3 +31,7 @@ export default class App extends Component {
     )
   }
 }
+
+App.propTypes = {
+  cards: PropTypes.arrayOf(PropTypes.object)
+};

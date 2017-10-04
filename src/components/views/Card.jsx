@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import CheckList from "./CheckList";
+import PropTypes from "prop-types";
 import marked from "marked";
 
 export default class Card extends Component {
@@ -54,3 +55,11 @@ export default class Card extends Component {
         )
     }
 }
+
+Card.propTypes = {
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    color: PropTypes.string,
+    tasks: PropTypes.arrayOf(PropTypes.object)
+};
