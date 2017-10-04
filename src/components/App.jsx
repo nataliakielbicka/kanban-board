@@ -9,6 +9,7 @@ export default class App extends Component {
         <List
           id="todo"
           title="To do"
+          taskCallbacks={this.props.taskCallbacks}
           cards={this
           .props
           .cards
@@ -16,6 +17,7 @@ export default class App extends Component {
         <List
           id="in-progress"
           title="In progress"
+          taskCallbacks={this.props.taskCallbacks}
           cards={this
           .props
           .cards
@@ -23,6 +25,7 @@ export default class App extends Component {
         <List
           id="done"
           title="Done"
+          taskCallbacks={this.props.taskCallbacks}
           cards={this
           .props
           .cards
@@ -33,5 +36,6 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  cards: PropTypes.arrayOf(PropTypes.object)
+  cards: PropTypes.arrayOf(PropTypes.object),
+  taskCallbacks: PropTypes.object
 };
