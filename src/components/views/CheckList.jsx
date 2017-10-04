@@ -8,7 +8,7 @@ export default class CheckList extends Component {
             .map((task) => (
                 <li className="checklist__task" key={task.id}>
                     <input type="checkbox" defaultChecked={task.done}/> {task.name}
-                    <a href="#remove" title="remove" className="checklist__task--remove">remove</a>
+                    <a href="#remove" title="remove" className="checklist__task--remove">{" "}</a>
                 </li>
             ));
         return (
