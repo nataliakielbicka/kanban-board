@@ -7,11 +7,21 @@ export default class Card extends Component {
         this.state = {
             showDetails: false
         }
+        this.toggleDetails = this
+            .toggleDetails
+            .bind(this);
+    }
+    toggleDetails = () => {
+        const {showDetails} = this.state;
+        this.setState({
+            showDetails: !showDetails
+        })
     }
     render() {
         const {showDetails} = this.state;
-        let cardDetails;
+        let cardDetails, titleClassName;
         if (showDetails) {
+            titleClassName = "card__title card__title--is-open";
             cardDetails = (
                 <div className="card__details">
                     {this.props.description}
@@ -19,13 +29,12 @@ export default class Card extends Component {
                 </div>
             )
         }
+        else {
+            titleClassName = "card__title";
+        }
         return (
             <div className="card">
-                <div
-                    className="card__title"
-                    onClick={() => this.setState({
-                    showDetails: !showDetails
-                })}>{this.props.title}</div>
+                <div className={titleClassName} onClick={this.toggleDetails}>{this.props.title}</div>
                 {cardDetails}
             </div>
         )
