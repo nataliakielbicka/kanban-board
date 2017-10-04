@@ -3,6 +3,15 @@ import CheckList from "./CheckList";
 import PropTypes from "prop-types";
 import marked from "marked";
 
+let titlePropType = (props, propName, componentName) => {
+    if (props[propName]) {
+        let value = props[propName];
+        if (typeof value !== "string" || value.length > 80) {
+            return new Error(`Value ${propName} in ${componentName} is longer than 80 signs.`);
+        }
+    }
+}
+
 export default class Card extends Component {
     constructor() {
         super();
@@ -58,7 +67,7 @@ export default class Card extends Component {
 
 Card.propTypes = {
     id: PropTypes.number,
-    title: PropTypes.string,
+    title: titlePropType,
     description: PropTypes.string,
     color: PropTypes.string,
     tasks: PropTypes.arrayOf(PropTypes.object)
