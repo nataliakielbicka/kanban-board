@@ -14,6 +14,10 @@ export default class CheckList extends Component {
         return (
             <div className="checklist">
                 <ul>{tasks}</ul>
+                <input
+                    type="text"
+                    className="checklist--add-task"
+                    placeholder="Press enter to add sth..."/>
             </div>
         );
     }
